@@ -3,7 +3,7 @@ export const languages = ['ja', 'en'] as const
 
 export const defaultNS = 'common'
 
-export function getOptions (lng = fallbackLng, ns = defaultNS) {
+export function getOptions (lng = fallbackLng) {
   return {
     // fallbackの言語設定
     supportedLngs: languages,
