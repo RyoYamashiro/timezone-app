@@ -1,0 +1,12 @@
+{
+    "title": "What time is it in Vancouver?",
+    "description": "With this app, you can quickly check the time in Japan and Vancouver.",
+    "convert": "Convert",
+    "currentTime": "Set Current Time",
+
+    "selectLabel": "Which time do you want to know?",
+    "optionVancouver": "Vancouver (from Japan)",
+    "optionJapan": "Japan (from Vancouver)",
+    "labelDate": "Date",
+    "labelTime": "Time"
+}

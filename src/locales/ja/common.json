@@ -1,0 +1,12 @@
+{
+    "title": "今、バンクーバー何時？",
+    "description": "このアプリで日本とバンクーバーの時間をすぐ確認できます。",
+    "convert": "変換",
+    "currentTime": "現在時刻をセット",
+
+    "selectLabel": "どちらの時間を知りたい？",
+    "optionVancouver": "バンクーバー（＝変換元：日本）",
+    "optionJapan": "日本（＝変換元：バンクーバー）",
+    "labelDate": "日付",
+    "labelTime": "時刻"
+}

@@ -4,6 +4,8 @@ import ConversionResult from './ConversionResult'
 import MapView from './MapView'
 import { useState } from 'react'
 import { DateTime } from 'luxon'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useTranslation } from 'react-i18next'
 
 export default function TimezoneConverter() {
   const [target, setTarget] = useState<'Vancouver' | 'Tokyo'>('Vancouver')
@@ -14,6 +16,10 @@ export default function TimezoneConverter() {
     vancouverTime: DateTime
     diff: number
   }>(null)
+  const [lang, setLang] = useState<'ja' | 'en'>('ja')
+  const { t, i18n } = useTranslation('common')
+  if (!i18n.language) return null
+
 
   const handleConvert = () => {
     if (!date || !time) return
@@ -33,7 +39,13 @@ export default function TimezoneConverter() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-3xl font-bold mb-6">今、バンクーバー何時？</h1>
+      <h1 className="text-3xl font-bold mb-6" suppressHydrationWarning>
+        {t('title')}
+      </h1>
+      <p className="text-lg text-gray-700 mb-4">
+        {t('description')}
+      </p>
+      <LanguageSwitcher lang={lang} setLang={setLang} />
       <TimezoneForm {...{ target, setTarget, date, setDate, time, setTime, handleConvert }} />
       {result && (
         <>

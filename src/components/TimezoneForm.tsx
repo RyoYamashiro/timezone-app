@@ -1,3 +1,7 @@
+'use client'
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+
 interface Props {
     target: 'Vancouver' | 'Tokyo'
     setTarget: (value: 'Vancouver' | 'Tokyo') => void
@@ -9,6 +13,13 @@ interface Props {
 }
 
 export default function TimezoneForm({ target, setTarget, date, setDate, time, setTime, handleConvert }: Props) {
+    const { t, i18n } = useTranslation('common')
+
+    useEffect(() => {
+        i18n.reloadResources(i18n.language)
+      }, [i18n.language]
+    )
+    
     const handleNowClick = () => {
         const now = new Date()
       
@@ -21,23 +32,31 @@ export default function TimezoneForm({ target, setTarget, date, setDate, time, s
         setDate(dateStr)
         setTime(timeStr)
     }
-    
+
     return (
         <div className="w-full max-w-md bg-white rounded-lg shadow p-6 space-y-4">
         <div>
-            <label className="block mb-1">どちらの時間を知りたい？</label>
+            <label className="block mb-1 text-left">
+                { t('selectLabel') }
+            </label>
             <select
             className="w-full border rounded px-3 py-2"
             value={target}
             onChange={(e) => setTarget(e.target.value as 'Vancouver' | 'Tokyo')}
             >
-            <option value="Vancouver">バンクーバー（＝変換元：日本）</option>
-            <option value="Tokyo">日本（＝変換元：バンクーバー）</option>
+            <option value="Vancouver">
+                { t('optionVancouver') }
+            </option>
+            <option value="Tokyo">
+                { t('optionJapan') }
+            </option>
             </select>
         </div>
 
         <div>
-            <label className="block mb-1">日付</label>
+            <label className="block mb-1">
+                { t('labelDate') }
+            </label>
             <input
             type="date"
             className="w-full border rounded px-3 py-2"
@@ -47,7 +66,9 @@ export default function TimezoneForm({ target, setTarget, date, setDate, time, s
         </div>
 
         <div>
-            <label className="block mb-1">時刻</label>
+            <label className="block mb-1">
+                { t('labelTime') }
+            </label>
             <input
                 type="time"
                 className="w-full border rounded px-3 py-2"
@@ -60,7 +81,7 @@ export default function TimezoneForm({ target, setTarget, date, setDate, time, s
                 onClick={handleNowClick}
                 className="text-sm text-blue-600 hover:underline"
                 >
-                現在時刻をセット
+                { t('currentTime') }
                 </button>
             </div>
         </div>
@@ -70,7 +91,7 @@ export default function TimezoneForm({ target, setTarget, date, setDate, time, s
             onClick={handleConvert}
             className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 rounded"
         >
-            変換
+            {t('convert')}
         </button>
         </div>
     )
