@@ -24,14 +24,15 @@ export const metadata: Metadata = {
   title: '今、バンクーバー何時？',
   description: 'バンクーバーと日本の時差を計算するアプリ',
 };
+type Props = {
+  children: React.ReactNode
+  params: { locale: string }
+}
 
 export default function RootLayout({
   children,
   params: { locale },
-}: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string }
-}>) {
+}: Props) {
   return (
     <html lang={locale} dir="ltr">
       <body
