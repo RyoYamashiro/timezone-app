@@ -24,17 +24,16 @@ export const metadata: Metadata = {
   title: '今、バンクーバー何時？',
   description: 'バンクーバーと日本の時差を計算するアプリ',
 };
-type LayoutProps = {
-  children: React.ReactNode
-  params: { locale: string }
-}
 
 export default function RootLayout({
   children,
-  params
-}: LayoutProps) {
+  params: { locale },
+}: Readonly<{
+  children: React.ReactNode;
+  params: { locale: string }
+}>) {
   return (
-    <html lang={params.locale} dir="ltr">
+    <html lang={locale} dir="ltr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
