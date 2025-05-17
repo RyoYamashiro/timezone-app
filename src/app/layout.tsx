@@ -31,7 +31,7 @@ type Props = {
 
 export default function RootLayout({
   children,
-  params: { locale },
+  params: { locale }
 }: Props) {
   return (
     <html lang={locale} dir="ltr">
