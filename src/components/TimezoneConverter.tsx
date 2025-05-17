@@ -19,7 +19,6 @@ export default function TimezoneConverter() {
     if (!date || !time) return
 
     const fromZone = target === 'Vancouver' ? 'Asia/Tokyo' : 'America/Vancouver'
-    const toZone = target === 'Vancouver' ? 'America/Vancouver' : 'Asia/Tokyo'
 
     const inputDateTime = DateTime.fromISO(`${date}T${time}`, {
       zone: fromZone,
