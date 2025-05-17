@@ -24,12 +24,6 @@ export const metadata: Metadata = {
   title: '今、バンクーバー何時？',
   description: 'バンクーバーと日本の時差を計算するアプリ',
 };
-type Props = {
-  children: React.ReactNode
-  params: {
-    locale: typeof languages[number] // ← 型安全にしとくと最高✨
-  }
-}
 
 export default function RootLayout({
   children,
