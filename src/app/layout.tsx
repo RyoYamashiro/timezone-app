@@ -26,13 +26,18 @@ export const metadata: Metadata = {
 };
 type Props = {
   children: React.ReactNode
-  params: { locale: string }
+  params: {
+    locale: typeof languages[number] // ← 型安全にしとくと最高✨
+  }
 }
 
 export default function RootLayout({
   children,
   params: { locale },
-}: Props) {
+}: Readonly<{
+  children: React.ReactNode;
+  params: { locale: string }
+}>) {
   return (
     <html lang={locale} dir="ltr">
       <body
