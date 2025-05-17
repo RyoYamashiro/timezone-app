@@ -9,6 +9,19 @@ interface Props {
 }
 
 export default function TimezoneForm({ target, setTarget, date, setDate, time, setTime, handleConvert }: Props) {
+    const handleNowClick = () => {
+        const now = new Date()
+      
+        const dateStr = now.toISOString().split('T')[0]
+      
+        const timeStr = now
+          .toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          .padStart(5, '0') // 例: '09:05'
+      
+        setDate(dateStr)
+        setTime(timeStr)
+    }
+    
     return (
         <div className="w-full max-w-md bg-white rounded-lg shadow p-6 space-y-4">
         <div>
@@ -36,12 +49,22 @@ export default function TimezoneForm({ target, setTarget, date, setDate, time, s
         <div>
             <label className="block mb-1">時刻</label>
             <input
-            type="time"
-            className="w-full border rounded px-3 py-2"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+                type="time"
+                className="w-full border rounded px-3 py-2"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
             />
+            <div className="text-right mt-1">
+                <button
+                type="button"
+                onClick={handleNowClick}
+                className="text-sm text-blue-600 hover:underline"
+                >
+                現在時刻をセット
+                </button>
+            </div>
         </div>
+        
 
         <button
             onClick={handleConvert}
