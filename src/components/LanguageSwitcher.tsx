@@ -4,10 +4,7 @@ import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
 
 
-export default function LanguageSwitcher({ lang, setLang }: {
-  lang: 'ja' | 'en',
-  setLang: (l: 'ja' | 'en') => void
-}) {
+export default function LanguageSwitcher() {
     const { i18n } = useTranslation()
 
     return (

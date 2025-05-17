@@ -16,7 +16,6 @@ export default function TimezoneConverter() {
     vancouverTime: DateTime
     diff: number
   }>(null)
-  const [lang, setLang] = useState<'ja' | 'en'>('ja')
   const { t, i18n } = useTranslation('common')
   if (!i18n.language) return null
 
@@ -45,7 +44,7 @@ export default function TimezoneConverter() {
       <p className="text-lg text-gray-700 mb-4">
         {t('description')}
       </p>
-      <LanguageSwitcher lang={lang} setLang={setLang} />
+      <LanguageSwitcher />
       <TimezoneForm {...{ target, setTarget, date, setDate, time, setTime, handleConvert }} />
       {result && (
         <>
