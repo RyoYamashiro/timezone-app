@@ -8,5 +8,13 @@
     "optionVancouver": "Vancouver (from Japan)",
     "optionJapan": "Japan (from Vancouver)",
     "labelDate": "Date",
-    "labelTime": "Time"
+    "labelTime": "Time",
+
+    "mapVancouver": "Vancouver",
+    "mapTokyo": "Tokyo",
+
+    "diff": "Time Difference",
+    "hours": "hours",
+    "japanAhead": "Japan is ahead",
+    "vancouverAhead": "Vancouver is ahead"
 }

@@ -8,5 +8,12 @@
     "optionVancouver": "バンクーバー（＝変換元：日本）",
     "optionJapan": "日本（＝変換元：バンクーバー）",
     "labelDate": "日付",
-    "labelTime": "時刻"
+    "labelTime": "時刻",
+
+    "mapVancouver": "バンクーバー",
+    "mapTokyo": "東京",
+    "diff": "時差",
+    "hours": "時間",
+    "japanAhead": "日本が進んでる",
+    "vancouverAhead": "バンクーバーが進んでる"
 }
