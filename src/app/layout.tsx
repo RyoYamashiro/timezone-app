@@ -25,23 +25,16 @@ export const metadata: Metadata = {
   description: 'バンクーバーと日本の時差を計算するアプリ',
 };
 
-type Props = {
-  children: React.ReactNode
-  params: {
-    locale: string
-  }
-}
 
 export default function RootLayout({
-  children,
-  params: { locale },
-}: Props) {
+  children
+}: { children: React.ReactNode }) {
   return (
-    <html lang={locale} dir="ltr">
+    <html lang="ja" dir="ltr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <I18nProvider locale={locale}>
+        <I18nProvider>
         {children}
         </I18nProvider>
       </body>
