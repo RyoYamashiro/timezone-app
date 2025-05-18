@@ -19,6 +19,10 @@ export default function TimezoneConverter() {
   const { t, i18n } = useTranslation('common')
   if (!i18n.language) return null
 
+  const start = result?.tokyoTime.setZone('utc').toFormat("yyyyLLdd'T'HHmmss'Z'")
+  const end = result?.tokyoTime.setZone('utc').plus({ minutes: 60 }).toFormat("yyyyLLdd'T'HHmmss'Z'")
+  
+  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check+time+conversion&dates=${start}/${end}&details=Time+converted+via+timezone-app&location=Online&sf=true&output=xml`
 
   const handleConvert = () => {
     if (!date || !time) return
@@ -36,6 +40,8 @@ export default function TimezoneConverter() {
     setResult({ tokyoTime, vancouverTime, diff })
   }
 
+
+
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-6" suppressHydrationWarning>
@@ -50,6 +56,14 @@ export default function TimezoneConverter() {
         <>
           <ConversionResult {...{ result }} />
           <MapView {...{ result }} />
+          <a
+            href={calendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block bg-[#1a73e8] text-white font-bold px-4 py-2 rounded hover:bg-blue-700"
+          >
+            {t('addToCalendar')}
+          </a>
         </>
       )}
     </div>
