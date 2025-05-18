@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description: 'バンクーバーと日本の時差を計算するアプリ',
 };
 
-type Props = {
+type LayoutProps = {
   children: React.ReactNode
   params: {
     locale: string
@@ -35,7 +35,7 @@ type Props = {
 export default function RootLayout({
   children,
   params: { locale },
-}: Props) {
+}: LayoutProps) {
   return (
     <html lang={locale} dir="ltr">
       <body
