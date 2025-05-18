@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface Props {
@@ -16,9 +16,16 @@ export default function TimezoneForm({ target, setTarget, date, setDate, time, s
     const { t, i18n } = useTranslation('common')
 
     useEffect(() => {
-        i18n.reloadResources(i18n.language)
-      }, [i18n.language]
-    )
+        const now = new Date()
+        const dateStr = now.toISOString().split('T')[0]
+      
+        const timeStr = now
+          .toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          .padStart(5, '0') // 例: '09:05'
+      
+        setDate(dateStr)
+        setTime(timeStr)
+    }, [])
     
     const handleNowClick = () => {
         const now = new Date()
