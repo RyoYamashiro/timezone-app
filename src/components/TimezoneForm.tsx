@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function TimezoneForm({ target, setTarget, date, setDate, time, setTime, handleConvert }: Props) {
-    const { t, i18n } = useTranslation('common')
+    const { t } = useTranslation('common')
 
     useEffect(() => {
         const now = new Date()
